@@ -286,8 +286,8 @@
 
         /* --- KARTE UN KĀJENE (ATJAUNOTS DIZAINS) --- */
         .map-and-footer-container {
-            position: relative; /* Nepieciešams, lai pozicionētu fūteri iekšpusē */
-            height: 500px; /* Kartes un fūtera kopējais augstums */
+            position: relative; 
+            height: 500px; 
             overflow: hidden;
             padding: 0;
             margin: 0;
@@ -300,7 +300,7 @@
             width: 100%;
             height: 100%;
             padding: 0;
-            z-index: 1; /* Zemākais slānis */
+            z-index: 1; 
         }
 
         #karte iframe {
@@ -310,33 +310,32 @@
             display: block;
         }
 
-        /* Tumšais filtrs pāri kartei */
         .map-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Tumšuma pakāpe */
-            z-index: 2; /* Virs kartes, zem fūtera teksta */
-            pointer-events: none; /* Ļauj klikšķināt kartei cauri */
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 2; 
+            pointer-events: none; 
         }
 
         footer {
-            position: absolute; /* Pārklājas pāri kartei */
+            position: absolute; 
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: transparent; /* Fons ir caurspīdīgs, jo filtrs ir zem tā */
+            background-color: transparent; 
             color: var(--white);
             text-align: center;
             padding: 30px 5%;
-            z-index: 3; /* Augstākais slānis */
+            z-index: 3; 
         }
 
         .footer-info {
             margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Labākai teksta lasāmībai uz tumša fona */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
         }
 
         .social-links a {
@@ -347,12 +346,17 @@
 
         /* Responīvais dizains mobilajām ierīcēm */
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; text-align: center; }
+            header { 
+                flex-direction: column; 
+                gap: 15px; 
+                text-align: center; 
+                position: static; /* Šis labojums novērš to, ka izvēlne seko līdzi */
+            }
             nav ul { flex-direction: column; gap: 10px; }
             .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
             .contact-info-header { flex-direction: column; gap: 5px; }
             .btn-secondary { margin-left: 0; margin-top: 15px; display: block; }
-            .map-and-footer-container { height: 600px; } /* Lielāks augstums mobilajos, lai pietiek vietas tekstam */
+            .map-and-footer-container { height: 600px; } 
         }
     </style>
 </head>
@@ -376,7 +380,7 @@
 
     <section class="hero">
         <video autoplay muted loop playsinline>
-            <source src="heroVideo.mp4" type="video/mp4">
+            <source src="No-video-title-fdown.net.mp4" type="video/mp4">
             Jūsu pārlūkprogramma neatbalsta video.
         </video>
         <div class="hero-overlay"></div>
@@ -497,7 +501,7 @@
         
         <section id="karte">
             <iframe 
-                src="https://maps.app.goo.gl/2X2zVZL4yftU7caV8" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17469.754770222044!2d23.155871302521955!3d56.9749557404494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eed2351a441dfb%3A0x400cfcd68f309a0!2sMilzkalne%2C%20Sm%C4%81rdes%20pagasts%2C%20LV-3148!5e0!3m2!1slv!2slv!4v1711200000000!5m2!1slv!2slv" 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
