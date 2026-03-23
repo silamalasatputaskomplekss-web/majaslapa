@@ -1,1 +1,525 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silamalas - Atpūtas komplekss Milzkalnē</title>
+    <style>
+        /* --- BĀZES STILI UN KRĀSAS --- */
+        :root {
+            --primary-green: #2d5a27;
+            --light-green: #4a7c43;
+            --dark-gray: #333333;
+            --light-gray: #f4f4f4;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- GALVENE (HEADER) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .contact-info-header {
+            font-size: 14px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* --- HERO SADAĻA (VIDEO BGR) --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--light-green);
+            border-color: var(--light-green);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        /* --- SADAĻU PAMATSTILI --- */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--primary-green);
+        }
+
+        /* --- ZIK-ZAK Izkārtojums (Par mums / Adrenalīns) --- */
+        .zigzag-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .zigzag-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .zigzag-text, .zigzag-img {
+            flex: 1;
+        }
+
+        .zigzag-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+
+        .zigzag-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- CENU KARTĪTES --- */
+        .pricing-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .price-card h3 {
+            font-size: 24px;
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--primary-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .price-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .price-card li::before {
+            content: '✓';
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- CSS GRID GALERIJA --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- ATSAUKSME --- */
+        .testimonial-box {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* --- KARTE UN KĀJENE (ATJAUNOTS DIZAINS) --- */
+        .map-and-footer-container {
+            position: relative; /* Nepieciešams, lai pozicionētu fūteri iekšpusē */
+            height: 500px; /* Kartes un fūtera kopējais augstums */
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        #karte {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            z-index: 1; /* Zemākais slānis */
+        }
+
+        #karte iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Tumšais filtrs pāri kartei */
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Tumšuma pakāpe */
+            z-index: 2; /* Virs kartes, zem fūtera teksta */
+            pointer-events: none; /* Ļauj klikšķināt kartei cauri */
+        }
+
+        footer {
+            position: absolute; /* Pārklājas pāri kartei */
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent; /* Fons ir caurspīdīgs, jo filtrs ir zem tā */
+            color: var(--white);
+            text-align: center;
+            padding: 30px 5%;
+            z-index: 3; /* Augstākais slānis */
+        }
+
+        .footer-info {
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Labākai teksta lasāmībai uz tumša fona */
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 18px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Responīvais dizains mobilajām ierīcēm */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav ul { flex-direction: column; gap: 10px; }
+            .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
+            .contact-info-header { flex-direction: column; gap: 5px; }
+            .btn-secondary { margin-left: 0; margin-top: 15px; display: block; }
+            .map-and-footer-container { height: 600px; } /* Lielāks augstums mobilajos, lai pietiek vietas tekstam */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Silamalas</a>
+        <nav>
+            <ul>
+                <li><a href="#par-mums">Par mums</a></li>
+                <li><a href="#cenas">Cenrādis</a></li>
+                <li><a href="#galerija">Galerija</a></li>
+                <li><a href="#rezervet">Rezervēt</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info-header">
+            <span>📞 +371 2X XXX XXX</span>
+            <span>✉️ info@silamalas.lv</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="heroVideo.mp4" type="video/mp4">
+            Jūsu pārlūkprogramma neatbalsta video.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Miers, dabas klātesamība un atpūta Milzkalnē</h1>
+            <p>Atpūtas komplekss meža ielokā tikai 60km attālumā no Rīgas. Jūsu ideālā vieta svinībām, relaksācijai vai aktīvai atpūtai līdz 30 personām.</p>
+            <a href="#rezervet" class="btn btn-primary">Rezervēt atpūtu</a>
+            <a href="#par-mums" class="btn btn-secondary">Uzzināt vairāk</a>
+        </div>
+    </section>
+
+    <section id="par-mums">
+        <h2 class="section-title">Laipni lūgti Silamalās</h2>
+        
+        <div class="zigzag-row">
+            <div class="zigzag-text">
+                <h3>Aizbēdziet no pilsētas kņadas</h3>
+                <p>Atpūtas komplekss "Silamalas", tika izveidots 2015. gadā. Komplekss atrodas meža ielokā, pašā kalna galiņā, ainaviskā vietā - Milzkalnē. Ja Jūs vēlaties izbaudīt mieru un klusumu dabas ielokā, mūsu komplekss ir radīts tieši Jums.</p>
+                <p>Relaksējies pirtiņā, izkarsējies karstajā kublā un baudi veldzējošu peldi baseinā. Vēro saulrietu, dzerot šampanieša glāzi vai karsto šokolādi, raugoties kamīna liesmās.</p>
+            </div>
+            <div class="zigzag-img">
+                <img src="651202572_906054938724682_2738697574098734359_n.jpg" alt="Pāris atpūšas karstajā kublā">
+            </div>
+        </div>
+
+        <div class="zigzag-row">
+            <div class="zigzag-text">
+                <h3>Adrenalīna deva un aktivitātes</h3>
+                <p>Bet, ja sirds kāro pēc adrenalīna devas, tad izbaudi trakulīgu izbraucienu pa meža takām ar kvadraciklu, vai izaicini draugus uz vienu volejbola vai basketbola maču.</p>
+                <p>Piedāvājam izīrēt automātiskos kvadraciklus (600cc un 650cc), ar kuriem vienlaicīgi var braukt divas personas. Mūsu atpūtas komplekss vasaras mēnešos ir ideāli piemērots dzimšanas dienas ballītēm, kāzām, darba pasākumiem un aktīvai laika pavadīšanai!</p>
+            </div>
+            <div class="zigzag-img">
+                <img src="650337331_906055695391273_6191771205937493708_n.jpg" alt="Lēciens dīķī un aktīvā atpūta">
+            </div>
+        </div>
+    </section>
+
+    <section id="cenas" style="background-color: var(--light-gray);">
+        <h2 class="section-title">Cenrādis un Pakalpojumi</h2>
+        <div class="pricing-grid">
+            
+            <div class="price-card">
+                <h3>❄️ Ziemas sezona (01.10 - 01.05)</h3>
+                <p><em>Check in no 16:00 | Check out 12:00</em></p><br>
+                <ul>
+                    <li>Svētdiena - Ceturtdiena: <strong>70 EUR</strong> (līdz 4 guļvietām)</li>
+                    <li>Piektdiena - Sestdiena: <strong>120 EUR</strong> (līdz 4 guļvietām)</li>
+                    <li>Katra nākamā guļvieta: <strong>10 EUR</strong> (Maksimums 8 cilv.)</li>
+                </ul>
+                <br>
+                <h4>Papildpakalpojumi:</h4>
+                <ul>
+                    <li>Karstais kubls: <strong>60 EUR</strong></li>
+                    <li>Uzkurināta pirts: <strong>30 EUR</strong></li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3>☀️ Vasaras sezona (01.05 - 01.10)</h3>
+                <p><em>Check in no 14:00 | Check out 11:00</em></p><br>
+                <h4>Piektdienās un sestdienās:</h4>
+                <ul>
+                    <li>Teritorijas īre + 16 guļvietas: <strong>430 EUR</strong></li>
+                    <li>Teritorijas īre + 26 guļvietas: <strong>500 EUR</strong></li>
+                </ul>
+                <br>
+                <h4>Svētdiena - Ceturtdiena:</h4>
+                <ul>
+                    <li>Teritorijas īre + 16 guļvietas: <strong>330 EUR</strong></li>
+                    <li>Teritorijas īre + 26 guļvietas: <strong>400 EUR</strong></li>
+                    <li>Teritorija bez nakšņošanas (līdz 25 cilv., 14:00-22:00): <strong>250 EUR</strong> (+5 EUR/pers)</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3>🏍️ Aktivitāšu noma (Vasara)</h3>
+                <br>
+                <ul>
+                    <li>Uzkurināta pirts uz vakaru: <strong>40 EUR</strong></li>
+                    <li>Uzkurināts kubls uz vakaru: <strong>80 EUR</strong></li>
+                    <li>Kvadracikla īre stundā: <strong>50 EUR</strong> <br><small>(600cc/650cc, degviela un ķiveres iekļautas)</small></li>
+                    <li>Zorb bumbas (6gb) + vārti uz stundu: <strong>60 EUR</strong></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="galerija">
+        <h2 class="section-title">Mirkļi no Silamalām</h2>
+        <div class="gallery-grid">
+            <img src="651767040_906055295391313_628221090209750949_n.jpg" alt="Silamalas nakts miera osta">
+            <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Plašā teritorija un dīķi krēslā">
+            <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Mājīgs interjers ar kamīnu">
+            <img src="650942105_906054978724678_5024881472659533450_n.jpg" alt="Gaišs numuriņš nakšņošanai">
+            <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Āra terase svinībām">
+            <img src="649787170_906055068724669_1777005099342468847_n.jpg" alt="Skats uz teritoriju dienas gaismā">
+            <img src="650025474_906055128724663_6929848860728186143_n.jpg" alt="Dīķis un atpūtas zona">
+            <img src="650117356_906055595391283_2206209509109973630_n.jpg" alt="Iebrauktuve Silamalās">
+        </div>
+    </section>
+
+    <section style="background-color: var(--light-gray); padding-top: 40px; padding-bottom: 40px;">
+        <div class="testimonial-box">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Brīnišķīga vieta atpūtai! Pilnīgs miers meža ielokā, fantastiska pirtiņa un atsaucīgi saimnieki. Noteikti atgriezīsimies!"</p>
+            <strong>- Google atsauksme (4.9/5)</strong>
+        </div>
+    </section>
+
+    <section id="rezervet">
+        <h2 class="section-title">Rezervēt Atpūtu</h2>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/silamalasatputaskomplekss/30min?background_color=ffffff&text_color=333333&primary_color=2d5a27" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </section>
+
+    <div class="map-and-footer-container">
+        
+        <section id="karte">
+            <iframe 
+                src="https://maps.app.goo.gl/2X2zVZL4yftU7caV8" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+        
+        <div class="map-overlay"></div>
+
+        <footer>
+            <div class="footer-info">
+                <p><strong>Atpūtas komplekss Silamalas</strong></p>
+                <p>Milzkalne, Smārdes pagasts | +371 2X XXX XXX | info@silamalas.lv</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook">FB</a>
+                <a href="#" target="_blank" title="Instagram">IG</a>
+            </div>
+            <br>
+            <p><small>© 2026 Silamalas. Visas tiesības aizsargātas.</small></p>
+        </footer>
+        
+    </div>
+
+</body>
+</html>
