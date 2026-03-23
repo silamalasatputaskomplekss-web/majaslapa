@@ -90,6 +90,9 @@
             text-align: center;
             color: var(--white);
             overflow: hidden;
+            background-color: var(--dark-gray); /* Fons, ja video neielādējas */
+            background-position: center;
+            background-size: cover;
         }
 
         .hero video {
@@ -284,7 +287,7 @@
             margin-bottom: 10px;
         }
 
-        /* --- KARTE UN KĀJENE (ATJAUNOTS DIZAINS) --- */
+        /* --- KARTE UN KĀJENE --- */
         .map-and-footer-container {
             position: relative; 
             height: 500px; 
@@ -344,15 +347,23 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
-        /* Responīvais dizains mobilajām ierīcēm */
+        /* --- RESPONZĪVAIS DIZAINS (MOBILIE TELEFONI) --- */
         @media (max-width: 768px) {
             header { 
                 flex-direction: column; 
                 gap: 15px; 
                 text-align: center; 
-                position: static; /* Šis labojums novērš to, ka izvēlne seko līdzi */
+                position: static; 
             }
             nav ul { flex-direction: column; gap: 10px; }
+            
+            /* Paslēpj video un iestata fona bildi telefonā */
+            .hero video { display: none; }
+            .hero { 
+                background-image: url('649787170_906055068724669_1777005099342468847_n.jpg'); 
+            }
+            .hero-content h1 { font-size: 36px; }
+
             .zigzag-row, .zigzag-row:nth-child(even) { flex-direction: column; }
             .contact-info-header { flex-direction: column; gap: 5px; }
             .btn-secondary { margin-left: 0; margin-top: 15px; display: block; }
@@ -501,7 +512,7 @@
         
         <section id="karte">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17469.754770222044!2d23.155871302521955!3d56.9749557404494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eed2351a441dfb%3A0x400cfcd68f309a0!2sMilzkalne%2C%20Sm%C4%81rdes%20pagasts%2C%20LV-3148!5e0!3m2!1slv!2slv!4v1711200000000!5m2!1slv!2slv" 
+                src="https://maps.google.com/maps?q=Smārdes%20pagasts,%20Latvia&t=&z=11&ie=UTF8&iwloc=&output=embed" 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
