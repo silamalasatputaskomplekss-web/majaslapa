@@ -50,13 +50,21 @@
             z-index: 1000;
         }
 
+        /* Jaunie logo stili attēlam */
         .logo {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary-green);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px; /* Datora versijas logo augstums */
+            width: auto;
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05); /* Nedaudz palielinās uzbraucot ar peli */
         }
 
         nav ul {
@@ -102,7 +110,7 @@
             width: auto;
             height: auto;
             transform: translateX(-50%) translateY(-50%);
-            z-index: 1; /* LABOJUMS: Tagad video ir virs fona krāsas */
+            z-index: 1; 
             object-fit: cover;
         }
 
@@ -113,12 +121,12 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
-            z-index: 2; /* LABOJUMS: Filtrs virs video */
+            z-index: 2; 
         }
 
         .hero-content {
             position: relative;
-            z-index: 3; /* LABOJUMS: Teksts pašā virspusē */
+            z-index: 3; 
         }
 
         .hero-content h1 {
@@ -359,6 +367,11 @@
                 position: static; 
                 padding: 15px 5%;
             }
+            
+            .logo img {
+                height: 45px; /* Telefona versijas logo augstums */
+            }
+
             nav ul { 
                 flex-direction: row; 
                 flex-wrap: wrap; 
@@ -387,7 +400,7 @@
 <body>
 
     <header>
-        <a href="#" class="logo"><img src="Silamalas_Logo.png"></a>
+        <a href="#" class="logo"><img src="Silamalas_Logo.png" alt="Silamalas Logo"></a>
         <nav>
             <ul>
                 <li><a href="#par-mums">Par mums</a></li>
