@@ -119,10 +119,16 @@
             <div class="price-card">
                 <h3>☀️ Vasaras sezona (01.05 - 01.10)</h3>
                 <p><em>Check in no 14:00 | Check out 11:00</em></p><br>
-                <h4>Piektdienās un sestdienās:</h4>
+                <h4>Piektdienās:</h4>
                 <ul>
                     <li>Teritorijas īre + 16 guļvietas: <strong>500 EUR</strong></li>
                     <li>Teritorijas īre + 26 guļvietas: <strong>550 EUR</strong></li>
+                </ul>
+                <br>
+                <h4>Sestdienās:</h4>
+                <ul>
+                    <li>Teritorijas īre + 16 guļvietas: <strong>500 EUR</strong></li>
+                    <li>Teritorijas īre + 26 guļvietas: <strong>600 EUR</strong></li>
                 </ul>
                 <br>
                 <h4>Svētdiena - Ceturtdiena:</h4>
@@ -155,22 +161,16 @@
         <!-- Kategoriju skats -->
         <div id="gallery-categories" class="gallery-grid">
             <div class="category-card" onclick="showGallery('cat-daba')">
-                <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Teritorija un Daba">
-                <div class="category-overlay">Teritorija un Daba</div>
+                <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Komplekss">
+                <div class="category-overlay">Komplekss</div>
             </div>
             
             <div class="category-card" onclick="showGallery('cat-telpas')">
-                <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Telpas un Interjers">
-                <div class="category-overlay">Telpas un Interjers</div>
+                <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Guļvietu telpas">
+                <div class="category-overlay">Guļvietu telpas</div>
             </div>
-            
-            <div class="category-card" onclick="showGallery('cat-pasakumi')">
-                <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Svinības un Atpūta">
-                <div class="category-overlay">Svinības un Atpūta</div>
-            </div>
-        </div>
 
-        <!-- 1. Kategorija: Daba -->
+        <!-- 1. Kategorija -->
         <div id="cat-daba" class="gallery-category-view" style="display: none;">
             <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
             <div class="gallery-grid">
@@ -181,7 +181,7 @@
             </div>
         </div>
 
-        <!-- 2. Kategorija: Telpas -->
+        <!-- 2. Kategorija -->
         <div id="cat-telpas" class="gallery-category-view" style="display: none;">
             <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
             <div class="gallery-grid">
@@ -190,17 +190,6 @@
                 <!-- Pievienojiet papildu telpu bildes šeit -->
             </div>
         </div>
-
-        <!-- 3. Kategorija: Pasākumi -->
-        <div id="cat-pasakumi" class="gallery-category-view" style="display: none;">
-            <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
-            <div class="gallery-grid">
-                <img src="651767040_906055295391313_628221090209750949_n.jpg" alt="Silamalas nakts miera osta">
-                <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Āra terase svinībām">
-                <!-- Pievienojiet papildu svinību bildes šeit -->
-            </div>
-        </div>
-    </section>
 
     <!-- JavaScript galerijas funkcionalitātei -->
     <script>
