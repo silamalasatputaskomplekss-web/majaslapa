@@ -130,8 +130,8 @@
                     <li>Teritorijas īre + 16 guļvietas: <strong>330 EUR</strong></li>
                     <li>Teritorijas īre + 26 guļvietas: <strong>400 EUR</strong></li>
                     <li>Teritorija bez nakšņošanas (līdz 25 cilv., 14:00-22:00): <strong>250 EUR</strong> (+5 EUR/pers)</li>
-                    <li>Ņemot uz divām vai vairāk dienām piedāvājam 20% atlaidi darba dienās.</li> 
                     <li>Vēlā izrakstīšanās (līdz 17:00) <strong>150 EUR</strong></li>
+                    <li>Ņemot uz divām vai vairāk dienām piedāvājam 20% atlaidi darba dienās.</li> 
                 </ul>
             </div>
 
@@ -149,19 +149,72 @@
         </div>
     </section>
 
-    <section id="galerija">
+<section id="galerija">
         <h2 class="section-title">Mirkļi no Silamalām</h2>
-        <div class="gallery-grid">
-            <img src="651767040_906055295391313_628221090209750949_n.jpg" alt="Silamalas nakts miera osta">
-            <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Plašā teritorija un dīķi krēslā">
-            <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Mājīgs interjers ar kamīnu">
-            <img src="650942105_906054978724678_5024881472659533450_n.jpg" alt="Gaišs numuriņš nakšņošanai">
-            <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Āra terase svinībām">
-            <img src="649787170_906055068724669_1777005099342468847_n.jpg" alt="Skats uz teritoriju dienas gaismā">
-            <img src="650025474_906055128724663_6929848860728186143_n.jpg" alt="Dīķis un atpūtas zona">
-            <img src="650117356_906055595391283_2206209509109973630_n.jpg" alt="Iebrauktuve Silamalās">
+
+        <!-- Kategoriju skats -->
+        <div id="gallery-categories" class="gallery-grid">
+            <div class="category-card" onclick="showGallery('cat-daba')">
+                <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Teritorija un Daba">
+                <div class="category-overlay">Teritorija un Daba</div>
+            </div>
+            
+            <div class="category-card" onclick="showGallery('cat-telpas')">
+                <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Telpas un Interjers">
+                <div class="category-overlay">Telpas un Interjers</div>
+            </div>
+            
+            <div class="category-card" onclick="showGallery('cat-pasakumi')">
+                <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Svinības un Atpūta">
+                <div class="category-overlay">Svinības un Atpūta</div>
+            </div>
+        </div>
+
+        <!-- 1. Kategorija: Daba -->
+        <div id="cat-daba" class="gallery-category-view" style="display: none;">
+            <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
+            <div class="gallery-grid">
+                <img src="650258029_906054905391352_2581423031043260464_n.jpg" alt="Plašā teritorija un dīķi krēslā">
+                <img src="649787170_906055068724669_1777005099342468847_n.jpg" alt="Skats uz teritoriju dienas gaismā">
+                <img src="650025474_906055128724663_6929848860728186143_n.jpg" alt="Dīķis un atpūtas zona">
+                <img src="650117356_906055595391283_2206209509109973630_n.jpg" alt="Iebrauktuve Silamalās">
+            </div>
+        </div>
+
+        <!-- 2. Kategorija: Telpas -->
+        <div id="cat-telpas" class="gallery-category-view" style="display: none;">
+            <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
+            <div class="gallery-grid">
+                <img src="650840910_906052655391577_351565780718205421_n.jpg" alt="Mājīgs interjers ar kamīnu">
+                <img src="650942105_906054978724678_5024881472659533450_n.jpg" alt="Gaišs numuriņš nakšņošanai">
+                <!-- Pievienojiet papildu telpu bildes šeit -->
+            </div>
+        </div>
+
+        <!-- 3. Kategorija: Pasākumi -->
+        <div id="cat-pasakumi" class="gallery-category-view" style="display: none;">
+            <button class="btn-back" onclick="hideGallery()">← Atpakaļ uz kategorijām</button>
+            <div class="gallery-grid">
+                <img src="651767040_906055295391313_628221090209750949_n.jpg" alt="Silamalas nakts miera osta">
+                <img src="650992784_906054975391345_3099362263845363375_n.jpg" alt="Āra terase svinībām">
+                <!-- Pievienojiet papildu svinību bildes šeit -->
+            </div>
         </div>
     </section>
+
+    <!-- JavaScript galerijas funkcionalitātei -->
+    <script>
+        function showGallery(categoryId) {
+            document.getElementById('gallery-categories').style.display = 'none';
+            document.querySelectorAll('.gallery-category-view').forEach(el => el.style.display = 'none');
+            document.getElementById(categoryId).style.display = 'block';
+        }
+
+        function hideGallery() {
+            document.querySelectorAll('.gallery-category-view').forEach(el => el.style.display = 'none');
+            document.getElementById('gallery-categories').style.display = 'grid';
+        }
+    </script>
 
     <section style="background-color: var(--light-gray); padding-top: 40px; padding-bottom: 40px;">
         <div class="testimonial-box">
