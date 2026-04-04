@@ -87,8 +87,20 @@
             display: flex;
             gap: 15px;
         }
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 1px solid #ddd;
+            padding-left: 15px;
+            margin-left: -10px;
+        }
 
-        /* --- VALODU IZVĒLNE BEZ JS (CSS Dropdown) --- */
+        .nav-socials a {
+            display: flex;
+            align-items: center;
+        }
+        /* --- VALODU IZVĒLNE (CSS Dropdown) --- */
         .lang-dropdown {
             position: relative;
             display: inline-block;
@@ -254,7 +266,7 @@
             color: var(--primary-green);
         }
 
-        /* --- ZIK-ZAK Izkārtojums --- */
+        /* --- ZIG-ZAG Izkārtojums --- */
         .zigzag-row {
             display: flex;
             align-items: center;
